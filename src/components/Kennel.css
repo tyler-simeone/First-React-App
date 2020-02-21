@@ -54,3 +54,10 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+/* Will Ferrell Owner Image */
+.willFerrellImage {
+  height: 500px;
+  width: 400px;
+  margin: 50px auto;
+}
