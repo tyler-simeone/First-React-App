@@ -55,9 +55,18 @@ img {
   justify-content: space-between;
 }
 
-/* Will Ferrell Owner Image */
+/* Images */
 .willFerrellImage {
   height: 500px;
   width: 400px;
-  margin: 50px auto;
+}
+
+.owenWilsonImage {
+  height: 300px;
+  width: 300px;
+}
+
+.bradPittImage {
+  height: 300px;
+  width: 300px;
 }
