@@ -4,12 +4,10 @@ const EmployeeCard = () => {
     return (
         <section>
             <ul>
-                <img src="#" />
-                <li>Employee 1</li>
-                <img src="#" />
-                <li>Employee 2</li>
-                <img src="#" />
-                <li>Employee 3</li>
+                <img src={require("./owenwilson.jpg")} className="owenWilsonImage" />
+                <li>Owen Wilson</li>
+                <img src={require("./braddpitt.jpg")} className="bradPittImage" />
+                <li>Bradd Pitt</li>
             </ul>
         </section>
     )

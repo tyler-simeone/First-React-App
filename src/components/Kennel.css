@@ -54,3 +54,19 @@ img {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+/* Images */
+.willFerrellImage {
+  height: 500px;
+  width: 400px;
+}
+
+.owenWilsonImage {
+  height: 300px;
+  width: 300px;
+}
+
+.bradPittImage {
+  height: 300px;
+  width: 300px;
+}
