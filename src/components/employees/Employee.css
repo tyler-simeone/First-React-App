@@ -1,0 +1,12 @@
+section {
+    margin-top: 100px;
+    margin-left: 100px;
+    display: inline-block;
+}
+
+img {
+    min-height: 300px;
+    max-height: 300px;
+    max-width: 300px;
+    border-radius: 2px;
+}

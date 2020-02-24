@@ -3,7 +3,7 @@ import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList"
 import LocationsList from "./locations/LocationsList"
-import EmployeeCard from "./employees/Employees"
+import EmployeeList from "./employees/EmployeeList"
 import OwnersCard from "./owners/Owners"
 
 const ApplicationViews = () => {
@@ -31,7 +31,7 @@ const ApplicationViews = () => {
       <Route
         path="/employees"
         render={props => {
-          return <EmployeeCard />
+          return <EmployeeList />
         }}
       />
       <Route

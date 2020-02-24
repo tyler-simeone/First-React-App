@@ -8,5 +8,9 @@
         {"id": 1, "name": "Nashville, TN"},
         {"id": 2, "name": "Santa Cruz, CA"},
         {"id": 3, "name": "Park City, UT"}
+    ],
+    "employees": [
+        {"id": 1, "name": "Owen Wilson", "image": "./owenwilson.jpg"},
+        {"id": 2, "name": "Brad Pitt", "image": "./braddpitt.jpg"}
     ]
 }
