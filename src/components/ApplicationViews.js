@@ -4,7 +4,7 @@ import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList"
 import LocationsList from "./locations/LocationsList"
 import EmployeeList from "./employees/EmployeeList"
-import OwnersCard from "./owners/Owners"
+import OwnersCard from "./owners/OwnersCard"
 
 const ApplicationViews = () => {
   return (

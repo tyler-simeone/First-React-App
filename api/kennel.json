@@ -12,5 +12,8 @@
     "employees": [
         {"id": 1, "name": "Owen Wilson", "image": "./owenwilson.jpg"},
         {"id": 2, "name": "Brad Pitt", "image": "./braddpitt.jpg"}
+    ],
+    "owners": [
+        {"id": 1, "name": "Will Ferrell", "image": "./WillFerrell.jpg"}
     ]
 }
