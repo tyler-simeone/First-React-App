@@ -3,5 +3,10 @@
         { "id": 1, "name": "Doodles", "breed": "Poodle"},
         { "id": 2, "name": "Decker", "breed": "German Shepherd" },
         { "id": 3, "name": "Esme", "breed": "Pitbull" }
+    ],
+    "locations": [
+        {"id": 1, "name": "Nashville, TN"},
+        {"id": 2, "name": "Santa Cruz, CA"},
+        {"id": 3, "name": "Park City, UT"}
     ]
 }

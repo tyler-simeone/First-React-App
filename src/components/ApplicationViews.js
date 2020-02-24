@@ -2,7 +2,7 @@ import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList"
-import Locations from "./locations/Locations"
+import LocationsList from "./locations/LocationsList"
 import EmployeeCard from "./employees/Employees"
 import OwnersCard from "./owners/Owners"
 
@@ -25,7 +25,7 @@ const ApplicationViews = () => {
       <Route
         path="/locations"
         render={props => {
-          return <Locations />
+          return <LocationsList />
         }}
       />
       <Route
