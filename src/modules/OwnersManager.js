@@ -1,12 +1,15 @@
-const remoteURL = "http://localhost:5002"
+const remoteURL = "http://localhost:5002";
 
 export default {
-    get(id) {
-        return fetch(`${remoteURL}/owners/${id}`)
-            .then(resp => resp.json())
-    },
-    getAll() {
-        return fetch(`${remoteURL}/owners`)
-            .then(resp => resp.json())
-    }
-}
+  get(id) {
+    return fetch(`${remoteURL}/owners/${id}`).then(result => result.json());
+  },
+  getAll() {
+    return fetch(`${remoteURL}/owners`).then(result => result.json());
+  },
+  delete(id) {
+    return fetch(`${remoteURL}/owners/${id}`, {
+      method: "DELETE"
+    }).then(result => result.json());
+  }
+};

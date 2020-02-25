@@ -4,18 +4,19 @@ import AnimalCard from './AnimalCard';
 import AnimalManager from '../../modules/AnimalManager';
 
 const AnimalList = () => {
-  // The initial state of 'animals' is an empty array
   const [animals, setAnimals] = useState([]);
 
   const getAnimals = () => {
-    // After the data comes back from the API, we
-    //  use the setAnimals function to update state
-    // .. and when the state changes, the data component will re-render to DOM
     return AnimalManager.getAll().then(animalsFromAPI => {
       setAnimals(animalsFromAPI)
     });
   };
 
+  const deleteAnimal = id => {
+    AnimalManager.delete(id)
+      .then(() => AnimalManager.getAll().then(setAnimals));
+  };
+  
   // got the animals from the API on the component's first render... useEffect waits for components to 'Mount'/render to the DOM
   // and THEN fetches the API data and displays it. 
   useEffect(() => {
@@ -33,7 +34,11 @@ const AnimalList = () => {
   // and the child component always inherits the state of the parent component via 'props' obj argument. 
   return (
     <div className="container-cards">
-      {animals.map(animal => <AnimalCard key={animal.id} animal={animal} />)}
+      {animals.map(animal =>
+        <AnimalCard
+          key={animal.id}
+          animal={animal}
+          deleteAnimal={deleteAnimal} />)}
     </div>
   );
 };

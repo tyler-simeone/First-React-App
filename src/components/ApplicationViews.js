@@ -4,7 +4,7 @@ import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList"
 import LocationsList from "./locations/LocationsList"
 import EmployeeList from "./employees/EmployeeList"
-import OwnersCard from "./owners/OwnersCard"
+import OwnersList from "./owners/OwnersList"
 
 const ApplicationViews = () => {
   return (
@@ -37,7 +37,7 @@ const ApplicationViews = () => {
       <Route
         path="/owners"
         render={props => {
-          return <OwnersCard />
+          return <OwnersList />
         }}
       />
     </React.Fragment>
