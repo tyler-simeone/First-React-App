@@ -1,20 +1,17 @@
 import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
-import AnimalCard from "./animal/AnimalCard";
-import Locations from "./locations/Locations"
-import EmployeeCard from "./employees/Employees"
-import OwnersCard from "./owners/Owners"
-//only include these once they are built - previous practice exercise
-/* 
-    import LocationCard from "./location/LocationCard";
-    import EmployeeCard from "./employee/EmployeeCard";
-    import OwnerCard from "./owner/OwnerCard";
-*/
+import AnimalList from "./animal/AnimalList";
+import LocationsList from "./locations/LocationsList";
+import EmployeeList from "./employees/EmployeeList";
+import OwnersList from "./owners/OwnersList";
+import AnimalDetail from "./animal/AnimalDetail";
+import LocationsDetails from "./locations/LocationsDetails"
 
 const ApplicationViews = () => {
   return (
     <React.Fragment>
+      {/* HOME */}
       <Route
         exact
         path="/"
@@ -22,31 +19,60 @@ const ApplicationViews = () => {
           return <Home />;
         }}
       />
+      {/* ANIMALS */}
+      {/* Make sure you add the `exact` attribute here */}
       <Route
+        exact
         path="/animals"
         render={props => {
-          return <AnimalCard />;
+          return <AnimalList />;
         }}
       />
+      {/* Line 35 means get id from URL query string parameter */}
+      {/* Line 36 means 'implicitly add more props from props argument' */}
+      <Route
+        path="/animals/:animalId(\d+)"
+        render={props => {
+          // Pass the animalId to the AnimalDetailComponent
+          return (
+            <AnimalDetail
+              animalId={parseInt(props.match.params.animalId)}
+              {...props}
+            />
+          );
+        }}
+      />
+      {/* LOCATIONS */}
       <Route
         exact
         path="/locations"
         render={props => {
-          return <Locations />
+          return <LocationsList />;
         }}
       />
+      <Route 
+        path="/locations/:locationId(\d+)"
+        render={props => {
+          return (
+            <LocationsDetails 
+              locationId={parseInt(props.match.params.locationId)}
+              {...props}
+            />
+          )
+        }}
+      />
+      {/* EMPLOYEES */}
       <Route
-        exact
         path="/employees"
         render={props => {
-          return <EmployeeCard />
+          return <EmployeeList />;
         }}
       />
+      {/* OWNERS */}
       <Route
-        exact
         path="/owners"
         render={props => {
-          return <OwnersCard />
+          return <OwnersList />;
         }}
       />
     </React.Fragment>

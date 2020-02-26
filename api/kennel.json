@@ -1,0 +1,52 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "name": "Doodles",
+      "breed": "Poodle"
+    },
+    {
+      "id": 2,
+      "name": "Decker",
+      "breed": "German Shepard"
+    },
+    {
+      "id": 3,
+      "name": "Esme",
+      "breed": "Pitbull"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Nashville, TN"
+    },
+    {
+      "id": 2,
+      "name": "Santa Cruz, CA"
+    },
+    {
+      "id": 3,
+      "name": "Park City, UT"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Owen Wilson",
+      "image": "./owenwilson.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Brad Pitt",
+      "image": "./braddpitt.jpg"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Will Ferrell",
+      "image": "./WillFerrell.jpg"
+    }
+  ]
+}
