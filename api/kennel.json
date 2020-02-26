@@ -14,6 +14,11 @@
       "id": 3,
       "name": "Esme",
       "breed": "Pitbull"
+    },
+    {
+      "name": "Super-Awesome-Trail-Dog",
+      "breed": "Lab",
+      "id": 5
     }
   ],
   "locations": [

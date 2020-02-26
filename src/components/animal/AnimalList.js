@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import AnimalCard from './AnimalCard';
 import AnimalManager from '../../modules/AnimalManager';
 
-const AnimalList = () => {
+const AnimalList = props => {
   const [animals, setAnimals] = useState([]);
 
   const getAnimals = () => {
@@ -36,13 +36,22 @@ const AnimalList = () => {
   // Also, AnimalCard is a child component of AnimalList (which is what is returned when 'animals' tab is clicked on),
   // and the child component always inherits the state of the parent component via 'props' obj argument. 
   return (
-    <div className="container-cards">
-      {animals.map(animal =>
-        <AnimalCard
-          key={animal.id}
-          animal={animal}
-          deleteAnimal={deleteAnimal} />)}
-    </div>
+    <React.Fragment>
+      <section className="section-content">
+        <button type="button"
+            className="btn"
+            onClick={() => {props.history.push("/animals/new")}}>
+            Admit Animal
+        </button>
+      </section>
+      <div className="container-cards">
+        {animals.map(animal =>
+          <AnimalCard
+            key={animal.id}
+            animal={animal}
+            deleteAnimal={deleteAnimal} />)}
+      </div>
+    </React.Fragment>
   );
 };
 export default AnimalList

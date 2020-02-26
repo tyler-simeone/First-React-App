@@ -2,11 +2,12 @@ import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
+import AnimalForm from "./animal/AnimalForm";
 import LocationsList from "./locations/LocationsList";
 import EmployeeList from "./employees/EmployeeList";
 import OwnersList from "./owners/OwnersList";
 import AnimalDetail from "./animal/AnimalDetail";
-import LocationsDetails from "./locations/LocationsDetails"
+import LocationsDetails from "./locations/LocationsDetails";
 
 const ApplicationViews = () => {
   return (
@@ -25,7 +26,13 @@ const ApplicationViews = () => {
         exact
         path="/animals"
         render={props => {
-          return <AnimalList />;
+          return <AnimalList {...props} />;
+        }}
+      />
+      <Route
+        path="/animals/new"
+        render={props => {
+          return <AnimalForm {...props} />;
         }}
       />
       {/* Line 35 means get id from URL query string parameter */}
@@ -50,15 +57,15 @@ const ApplicationViews = () => {
           return <LocationsList />;
         }}
       />
-      <Route 
+      <Route
         path="/locations/:locationId(\d+)"
         render={props => {
           return (
-            <LocationsDetails 
+            <LocationsDetails
               locationId={parseInt(props.match.params.locationId)}
               {...props}
             />
-          )
+          );
         }}
       />
       {/* EMPLOYEES */}
