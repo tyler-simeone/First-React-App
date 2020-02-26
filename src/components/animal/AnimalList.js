@@ -19,6 +19,9 @@ const AnimalList = () => {
   
   // got the animals from the API on the component's first render... useEffect waits for components to 'Mount'/render to the DOM
   // and THEN fetches the API data and displays it. 
+
+  // Just a reminder that useEffect() only runs when something renders to DOM, so first render is empty, user doesn't see anything,
+  // and then React rapidly then invokes useEffect() hook which renders content from obj state to DOM. :)
   useEffect(() => {
     getAnimals();
   }, []);
