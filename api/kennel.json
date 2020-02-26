@@ -2,17 +2,22 @@
   "animals": [
     {
       "id": 1,
-      "name": "Doodles",
-      "breed": "Poodle"
+      "name": "Rex",
+      "breed": "T-rex"
     },
     {
       "id": 2,
-      "name": "Decker",
-      "breed": "German Shepard"
+      "name": "Rad",
+      "breed": "Lab"
     },
     {
       "id": 3,
       "name": "Esme",
+      "breed": "Pitbull"
+    },
+    {
+      "id": 4,
+      "name": "Roy",
       "breed": "Pitbull"
     },
     {
@@ -40,11 +45,6 @@
       "id": 1,
       "name": "Owen Wilson",
       "image": "./owenwilson.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Brad Pitt",
-      "image": "./braddpitt.jpg"
     }
   ],
   "owners": [
