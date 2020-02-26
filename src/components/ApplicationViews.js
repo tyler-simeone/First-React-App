@@ -44,6 +44,7 @@ const ApplicationViews = () => {
       />
       {/* LOCATIONS */}
       <Route
+        exact
         path="/locations"
         render={props => {
           return <LocationsList />;

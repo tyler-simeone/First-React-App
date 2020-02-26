@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import LocationsManager from "../../modules/LocationsManager";
+import "./LocationsDetails.css"
 
 // So right now it's not rendering the card by itself whose 'details' btn has been clicked, and it's
 // stacking the path of the card that's clicked on into the URL....  
+// Was missing 2 things: a beginning '/' in the link's 'to' path attribute & the 'exact' word before 'path' on first 
+// 'locations' route in ApplicationViews.js, which prevents the list from reloading with the single card.
 const LocationDetails = props => {
-  const [location, setLocation] = useState([{ name: "" }]);
+  const [location, setLocation] = useState({ name: "" });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDelete = () => {
