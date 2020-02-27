@@ -22,5 +22,5 @@ export default {
             },
             body: JSON.stringify(newLocation)
         }).then(data => data.json())
-      }
+    }
 }

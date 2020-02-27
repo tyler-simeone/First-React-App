@@ -3,13 +3,14 @@ import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
 import AnimalForm from "./animal/AnimalForm";
+import AnimalDetail from "./animal/AnimalDetail";
 import LocationsList from "./locations/LocationsList";
 import LocationForm from "./locations/LocationsForm"
+import LocationsDetails from "./locations/LocationsDetails";
 import EmployeeList from "./employees/EmployeeList";
 import EmployeeForm from "./employees/EmployeeForm";
 import OwnersList from "./owners/OwnersList";
-import AnimalDetail from "./animal/AnimalDetail";
-import LocationsDetails from "./locations/LocationsDetails";
+import OwnerForm from "./owners/OwnersForm";
 
 const ApplicationViews = () => {
   return (
@@ -22,6 +23,7 @@ const ApplicationViews = () => {
           return <Home />;
         }}
       />
+
       {/* ANIMALS */}
       {/* Make sure you add the `exact` attribute here */}
       <Route
@@ -49,6 +51,7 @@ const ApplicationViews = () => {
           );
         }}
       />
+
       {/* LOCATIONS */}
       <Route
         exact
@@ -74,6 +77,7 @@ const ApplicationViews = () => {
           );
         }}
       />
+
       {/* EMPLOYEES */}
       <Route
         exact
@@ -88,11 +92,19 @@ const ApplicationViews = () => {
           return <EmployeeForm {...props} />;
         }}
       />
+
       {/* OWNERS */}
       <Route
+        exact
         path="/owners"
         render={props => {
-          return <OwnersList />;
+          return <OwnersList {...props} />;
+        }}
+      />
+      <Route
+        path="/owners/new"
+        render={props => {
+          return <OwnerForm {...props} />;
         }}
       />
     </React.Fragment>

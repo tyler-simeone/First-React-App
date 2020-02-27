@@ -41,7 +41,7 @@ const EmployeeForm = props => {
               id="name"
               placeholder="Employee Name"
             />
-            <label htmlFor="employeeName">Name</label>
+            <label htmlFor="name">Name</label>
           </div>
           <div className="alignRight">
             <button
