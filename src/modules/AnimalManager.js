@@ -20,5 +20,5 @@ export default {
         },
         body: JSON.stringify(newAnimal)
     }).then(data => data.json())
-}
+  }
 }

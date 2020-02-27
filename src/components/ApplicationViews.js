@@ -6,6 +6,7 @@ import AnimalForm from "./animal/AnimalForm";
 import LocationsList from "./locations/LocationsList";
 import LocationForm from "./locations/LocationsForm"
 import EmployeeList from "./employees/EmployeeList";
+import EmployeeForm from "./employees/EmployeeForm";
 import OwnersList from "./owners/OwnersList";
 import AnimalDetail from "./animal/AnimalDetail";
 import LocationsDetails from "./locations/LocationsDetails";
@@ -75,9 +76,16 @@ const ApplicationViews = () => {
       />
       {/* EMPLOYEES */}
       <Route
+        exact
         path="/employees"
         render={props => {
-          return <EmployeeList />;
+          return <EmployeeList {...props} />;
+        }}
+      />
+      <Route
+        path="/employees/new"
+        render={props => {
+          return <EmployeeForm {...props} />;
         }}
       />
       {/* OWNERS */}
