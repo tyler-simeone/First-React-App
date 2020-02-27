@@ -1,4 +1,5 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
+import Login from "./auth/Login";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
@@ -12,9 +13,14 @@ import EmployeeForm from "./employees/EmployeeForm";
 import OwnersList from "./owners/OwnersList";
 import OwnerForm from "./owners/OwnersForm";
 
+const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+
 const ApplicationViews = () => {
   return (
     <React.Fragment>
+
+      <Route path="/login" component={Login} />
+
       {/* HOME */}
       <Route
         exact
@@ -25,12 +31,15 @@ const ApplicationViews = () => {
       />
 
       {/* ANIMALS */}
-      {/* Make sure you add the `exact` attribute here */}
       <Route
         exact
         path="/animals"
         render={props => {
-          return <AnimalList {...props} />;
+          if (isAuthenticated()) {
+            return <AnimalList {...props} />;
+          } else {
+            return <Redirect to="/login" />
+          }
         }}
       />
       <Route
