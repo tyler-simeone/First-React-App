@@ -7,7 +7,9 @@ const AnimalForm = props => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleFieldChange = evt => {
+    // { ...animal } means get all the props from animal obj state.
     const stateToChange = { ...animal };
+    // below code accesses the obj state via its id, and updates its value to whatever vals are entered in input fields...
     stateToChange[evt.target.id] = evt.target.value;
     setAnimal(stateToChange);
   };
@@ -22,6 +24,7 @@ const AnimalForm = props => {
       setIsLoading(true);
       // Create the animal and redirect user to animal list
       AnimalManager.post(animal)
+      // After new animal is posted, redirects URL to re-render all animals again.
         .then(() => props.history.push("/animals"));
     }
   };
@@ -51,6 +54,7 @@ const AnimalForm = props => {
           <div className="alignRight">
             <button
               type="button"
+              // when isLoading is false, submit btn is clickable, when it's true, submit btn is not clickable.
               disabled={isLoading}
               onClick={constructNewAnimal}
             >Submit</button>

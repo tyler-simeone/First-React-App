@@ -4,6 +4,7 @@ import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
 import AnimalForm from "./animal/AnimalForm";
 import LocationsList from "./locations/LocationsList";
+import LocationForm from "./locations/LocationsForm"
 import EmployeeList from "./employees/EmployeeList";
 import OwnersList from "./owners/OwnersList";
 import AnimalDetail from "./animal/AnimalDetail";
@@ -35,8 +36,6 @@ const ApplicationViews = () => {
           return <AnimalForm {...props} />;
         }}
       />
-      {/* Line 35 means get id from URL query string parameter */}
-      {/* Line 36 means 'implicitly add more props from props argument' */}
       <Route
         path="/animals/:animalId(\d+)"
         render={props => {
@@ -54,7 +53,13 @@ const ApplicationViews = () => {
         exact
         path="/locations"
         render={props => {
-          return <LocationsList />;
+          return <LocationsList {...props} />;
+        }}
+      />
+      <Route
+        path="/locations/new"
+        render={props => {
+          return <LocationForm {...props} />;
         }}
       />
       <Route

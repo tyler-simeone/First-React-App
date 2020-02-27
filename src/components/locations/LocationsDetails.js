@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import LocationsManager from "../../modules/LocationsManager";
 import "./LocationsDetails.css"
+import { Link } from "react-router-dom";
 
 // So right now it's not rendering the card by itself whose 'details' btn has been clicked, and it's
 // stacking the path of the card that's clicked on into the URL....  
@@ -28,9 +29,12 @@ const LocationDetails = props => {
 
   return (
     <section>
-      <address>{location.name}</address>
+      <h2>{location.name}</h2>
 
       <button type="button" disabled={isLoading} onClick={handleDelete}>Remove Location</button>
+      <Link to="/locations">
+        <button type="button">All Locations</button>
+      </Link>
     </section>
   );
 };
