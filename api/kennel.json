@@ -2,32 +2,45 @@
   "animals": [
     {
       "id": 1,
-      "name": "Doodles",
-      "breed": "Poodle"
+      "name": "Rex",
+      "breed": "T-rex"
     },
     {
       "id": 2,
-      "name": "Decker",
-      "breed": "German Shepard"
+      "name": "Rad",
+      "breed": "Lab"
     },
     {
       "id": 3,
       "name": "Esme",
       "breed": "Pitbull"
+    },
+    {
+      "id": 4,
+      "name": "Roy",
+      "breed": "Pitbull"
+    },
+    {
+      "name": "Super-Awesome-Trail-Dog",
+      "breed": "Lab",
+      "id": 5
     }
   ],
   "locations": [
     {
-      "id": 1,
-      "name": "Nashville, TN"
+      "name": "NSS",
+      "address": "Nashville, TN",
+      "id": 1
     },
     {
-      "id": 2,
-      "name": "Santa Cruz, CA"
+      "name": "MTB Trails",
+      "address": "Park City, UT",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "Park City, UT"
+      "name": "Soquel Demo Forest",
+      "address": "Santa Cruz, CA",
+      "id": 3
     }
   ],
   "employees": [

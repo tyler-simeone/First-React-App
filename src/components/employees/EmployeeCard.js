@@ -5,10 +5,12 @@ const EmployeeCard = props => {
   return (
     <section>
       <picture>
-        <img
-          src={require(`${props.employee.image}`)}
-          alt={`${props.employee.name}`}
-        />
+        {props.employee.image ? (
+          <img
+            src={require(`${props.employee.image}`)}
+            alt={`${props.employee.name}`}
+          />
+        ) : null}
       </picture>
       <h2>{props.employee.name}</h2>
       <p>{props.employee.name} just loves dogs.</p>
@@ -16,7 +18,7 @@ const EmployeeCard = props => {
         type="button"
         onClick={() => props.deleteEmployee(props.employee.id)}
       >
-        Fire Employee!
+        Fire Employee
       </button>
     </section>
   );

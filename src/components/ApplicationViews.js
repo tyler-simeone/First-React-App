@@ -2,11 +2,15 @@ import { Route } from "react-router-dom";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
-import LocationsList from "./locations/LocationsList";
-import EmployeeList from "./employees/EmployeeList";
-import OwnersList from "./owners/OwnersList";
+import AnimalForm from "./animal/AnimalForm";
 import AnimalDetail from "./animal/AnimalDetail";
-import LocationsDetails from "./locations/LocationsDetails"
+import LocationsList from "./locations/LocationsList";
+import LocationForm from "./locations/LocationsForm"
+import LocationsDetails from "./locations/LocationsDetails";
+import EmployeeList from "./employees/EmployeeList";
+import EmployeeForm from "./employees/EmployeeForm";
+import OwnersList from "./owners/OwnersList";
+import OwnerForm from "./owners/OwnersForm";
 
 const ApplicationViews = () => {
   return (
@@ -19,17 +23,22 @@ const ApplicationViews = () => {
           return <Home />;
         }}
       />
+
       {/* ANIMALS */}
       {/* Make sure you add the `exact` attribute here */}
       <Route
         exact
         path="/animals"
         render={props => {
-          return <AnimalList />;
+          return <AnimalList {...props} />;
         }}
       />
-      {/* Line 35 means get id from URL query string parameter */}
-      {/* Line 36 means 'implicitly add more props from props argument' */}
+      <Route
+        path="/animals/new"
+        render={props => {
+          return <AnimalForm {...props} />;
+        }}
+      />
       <Route
         path="/animals/:animalId(\d+)"
         render={props => {
@@ -42,37 +51,60 @@ const ApplicationViews = () => {
           );
         }}
       />
+
       {/* LOCATIONS */}
       <Route
         exact
         path="/locations"
         render={props => {
-          return <LocationsList />;
+          return <LocationsList {...props} />;
         }}
       />
-      <Route 
+      <Route
+        path="/locations/new"
+        render={props => {
+          return <LocationForm {...props} />;
+        }}
+      />
+      <Route
         path="/locations/:locationId(\d+)"
         render={props => {
           return (
-            <LocationsDetails 
+            <LocationsDetails
               locationId={parseInt(props.match.params.locationId)}
               {...props}
             />
-          )
+          );
         }}
       />
+
       {/* EMPLOYEES */}
       <Route
+        exact
         path="/employees"
         render={props => {
-          return <EmployeeList />;
+          return <EmployeeList {...props} />;
         }}
       />
+      <Route
+        path="/employees/new"
+        render={props => {
+          return <EmployeeForm {...props} />;
+        }}
+      />
+
       {/* OWNERS */}
       <Route
+        exact
         path="/owners"
         render={props => {
-          return <OwnersList />;
+          return <OwnersList {...props} />;
+        }}
+      />
+      <Route
+        path="/owners/new"
+        render={props => {
+          return <OwnerForm {...props} />;
         }}
       />
     </React.Fragment>
