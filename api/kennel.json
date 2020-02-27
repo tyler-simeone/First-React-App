@@ -45,6 +45,11 @@
       "id": 1,
       "name": "Owen Wilson",
       "image": "./owenwilson.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Brad Pitt",
+      "image": "./braddpitt.jpg"
     }
   ],
   "owners": [
