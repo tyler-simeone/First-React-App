@@ -5,8 +5,10 @@ import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
 import AnimalForm from "./animal/AnimalForm";
 import AnimalDetail from "./animal/AnimalDetail";
+import AnimalEditForm from "./animal/AnimalEditForm";
 import LocationsList from "./locations/LocationsList";
 import LocationForm from "./locations/LocationsForm";
+import LocationEditForm from "./locations/LocationsEditForm";
 import LocationsDetails from "./locations/LocationsDetails";
 import EmployeeList from "./employees/EmployeeList";
 import EmployeeForm from "./employees/EmployeeForm";
@@ -20,13 +22,16 @@ const ApplicationViews = () => {
   return (
     <React.Fragment>
       {/* Rather than render JSX attribute, we use 'component' and pass in Login card */}
-      <Route path="/login" render={props => {
-        if (isAuthenticated()) {
-          return <Redirect to="/" />
-        } else {
-          return <Login {...props} />
-        }
-      }} />
+      <Route
+        path="/login"
+        render={props => {
+          if (isAuthenticated()) {
+            return <Redirect to="/" />;
+          } else {
+            return <Login {...props} />;
+          }
+        }}
+      />
 
       {/* HOME */}
       <Route
@@ -59,15 +64,29 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/animals/:animalId(\d+)"
         render={props => {
-          // Pass the animalId to the AnimalDetailComponent
-          return (
-            <AnimalDetail
-              animalId={parseInt(props.match.params.animalId)}
-              {...props}
-            />
-          );
+          if (isAuthenticated()) {
+            return (
+              <AnimalDetail
+                animalId={parseInt(props.match.params.animalId)}
+                {...props}
+              />
+            );
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
+      <Route
+        path="/animals/:animalId(\d+)/edit"
+        render={props => {
+          if (isAuthenticated()) {
+            return <AnimalEditForm {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
 
@@ -79,7 +98,7 @@ const ApplicationViews = () => {
           if (isAuthenticated()) {
             return <LocationsList {...props} />;
           } else {
-            return <Redirect to="/login" />
+            return <Redirect to="/login" />;
           }
         }}
       />
@@ -90,6 +109,7 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/locations/:locationId(\d+)"
         render={props => {
           return (
@@ -100,7 +120,16 @@ const ApplicationViews = () => {
           );
         }}
       />
-
+      <Route
+        path="/locations/:locationId(\d+)/edit"
+        render={props => {
+          if (isAuthenticated()) {
+            return <LocationEditForm {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
       {/* EMPLOYEES */}
       {/* TODO: Add employee details route/component */}
       <Route
@@ -110,7 +139,7 @@ const ApplicationViews = () => {
           if (isAuthenticated()) {
             return <EmployeeList {...props} />;
           } else {
-            return <Redirect to="/login" />
+            return <Redirect to="/login" />;
           }
         }}
       />
@@ -130,7 +159,7 @@ const ApplicationViews = () => {
           if (isAuthenticated()) {
             return <OwnersList {...props} />;
           } else {
-            return <Redirect to="/login" />
+            return <Redirect to="/login" />;
           }
         }}
       />

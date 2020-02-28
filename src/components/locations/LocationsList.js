@@ -41,6 +41,7 @@ const LocationsList = props => {
             key={location.id}
             location={location}
             deleteLocation={deleteLocation}
+            // {...props}
           />
         ))}
       </div>

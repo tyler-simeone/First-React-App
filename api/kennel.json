@@ -3,11 +3,11 @@
     {
       "id": 1,
       "name": "Rex",
-      "breed": "T-rex"
+      "breed": "Bull Mastiff"
     },
     {
       "id": 2,
-      "name": "Rad",
+      "name": "Rad Dog 3000",
       "breed": "Lab"
     },
     {
@@ -17,7 +17,7 @@
     },
     {
       "id": 4,
-      "name": "Roy",
+      "name": "Troy",
       "breed": "Pitbull"
     },
     {
