@@ -20,7 +20,13 @@ const ApplicationViews = () => {
   return (
     <React.Fragment>
       {/* Rather than render JSX attribute, we use 'component' and pass in Login card */}
-      <Route path="/login" component={Login} />
+      <Route path="/login" render={props => {
+        if (isAuthenticated()) {
+          return <Redirect to="/" />
+        } else {
+          return <Login {...props} />
+        }
+      }} />
 
       {/* HOME */}
       <Route
