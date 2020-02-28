@@ -1,11 +1,12 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
+import Login from "./auth/Login";
 import React from "react";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
 import AnimalForm from "./animal/AnimalForm";
 import AnimalDetail from "./animal/AnimalDetail";
 import LocationsList from "./locations/LocationsList";
-import LocationForm from "./locations/LocationsForm"
+import LocationForm from "./locations/LocationsForm";
 import LocationsDetails from "./locations/LocationsDetails";
 import EmployeeList from "./employees/EmployeeList";
 import EmployeeForm from "./employees/EmployeeForm";
@@ -13,8 +14,20 @@ import OwnersList from "./owners/OwnersList";
 import OwnerForm from "./owners/OwnersForm";
 
 const ApplicationViews = () => {
+  // As long as sessionStorage has a key of 'credentials' then this func is true
+  const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+
   return (
     <React.Fragment>
+      {/* Rather than render JSX attribute, we use 'component' and pass in Login card */}
+      <Route path="/login" render={props => {
+        if (isAuthenticated()) {
+          return <Redirect to="/" />
+        } else {
+          return <Login {...props} />
+        }
+      }} />
+
       {/* HOME */}
       <Route
         exact
@@ -25,12 +38,18 @@ const ApplicationViews = () => {
       />
 
       {/* ANIMALS */}
-      {/* Make sure you add the `exact` attribute here */}
       <Route
+        // Using the 'exact' prop will require this exact path to render this component, and prevent rendering this component
+        // when another path that includes this path is loaded (such as the 2 route below this first one).
         exact
+        // The basic paths come from NavBar.js, the other paths come from different btn clicks.
         path="/animals"
         render={props => {
-          return <AnimalList {...props} />;
+          if (isAuthenticated()) {
+            return <AnimalList {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
       <Route
@@ -57,7 +76,11 @@ const ApplicationViews = () => {
         exact
         path="/locations"
         render={props => {
-          return <LocationsList {...props} />;
+          if (isAuthenticated()) {
+            return <LocationsList {...props} />;
+          } else {
+            return <Redirect to="/login" />
+          }
         }}
       />
       <Route
@@ -79,11 +102,16 @@ const ApplicationViews = () => {
       />
 
       {/* EMPLOYEES */}
+      {/* TODO: Add employee details route/component */}
       <Route
         exact
         path="/employees"
         render={props => {
-          return <EmployeeList {...props} />;
+          if (isAuthenticated()) {
+            return <EmployeeList {...props} />;
+          } else {
+            return <Redirect to="/login" />
+          }
         }}
       />
       <Route
@@ -94,11 +122,16 @@ const ApplicationViews = () => {
       />
 
       {/* OWNERS */}
+      {/* TODO: Add owner details route/component */}
       <Route
         exact
         path="/owners"
         render={props => {
-          return <OwnersList {...props} />;
+          if (isAuthenticated()) {
+            return <OwnersList {...props} />;
+          } else {
+            return <Redirect to="/login" />
+          }
         }}
       />
       <Route
