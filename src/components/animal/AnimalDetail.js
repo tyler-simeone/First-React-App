@@ -4,6 +4,7 @@ import "./AnimalDetail.css";
 
 const AnimalDetail = props => {
   const [animal, setAnimal] = useState({ name: "", breed: "" });
+  // We use this second state to prevent user from clicking post/delete/edit btn twice on accident.
   const [isLoading, setIsLoading] = useState(true);
 
     // Line 15 pushes the id of the animal being deleted to the browser's history, for when going
@@ -15,7 +16,7 @@ const AnimalDetail = props => {
       props.history.push("/animals")
     );
   };
-    // Line 26 means run useEffect() when URL/path includes animal id and that animal renders to DOM
+    // Second useEffect arg means run useEffect() when URL/path includes animal id and that animal renders to DOM
   useEffect(() => {
     //get(id) from AnimalManager and hang on to the data; put it into state
     // (look at ApplicationView.js to see where props.animalId comes from)
