@@ -28,9 +28,9 @@
   ],
   "locations": [
     {
+      "id": 1,
       "name": "NSS",
-      "address": "Nashville, TN",
-      "id": 1
+      "address": "NASHVILLE, TN"
     },
     {
       "name": "MTB Trails",
