@@ -6,19 +6,18 @@ import AnimalList from "./animal/AnimalList";
 import AnimalForm from "./animal/AnimalForm";
 import AnimalDetail from "./animal/AnimalDetail";
 import LocationsList from "./locations/LocationsList";
-import LocationForm from "./locations/LocationsForm"
+import LocationForm from "./locations/LocationsForm";
 import LocationsDetails from "./locations/LocationsDetails";
 import EmployeeList from "./employees/EmployeeList";
 import EmployeeForm from "./employees/EmployeeForm";
 import OwnersList from "./owners/OwnersList";
 import OwnerForm from "./owners/OwnersForm";
 
-const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
-
 const ApplicationViews = () => {
+  const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+
   return (
     <React.Fragment>
-
       <Route path="/login" component={Login} />
 
       {/* HOME */}
@@ -38,7 +37,7 @@ const ApplicationViews = () => {
           if (isAuthenticated()) {
             return <AnimalList {...props} />;
           } else {
-            return <Redirect to="/login" />
+            return <Redirect to="/login" />;
           }
         }}
       />
