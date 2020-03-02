@@ -8,22 +8,25 @@
     {
       "id": 2,
       "name": "Rad Dog 3000",
-      "breed": "Lab"
+      "breed": "Lab",
+      "employeeId": 2
     },
     {
       "id": 3,
       "name": "Esme",
-      "breed": "Pitbull"
+      "breed": "Pitbull",
+      "employeeId": 1
     },
     {
       "id": 4,
       "name": "Troy",
-      "breed": "Pitbull"
+      "breed": "Pitbull",
+      "employeeId": 2
     },
     {
+      "id": 5,
       "name": "Super-Awesome-Trail-Dog",
-      "breed": "Lab",
-      "id": 5
+      "breed": "Lab"
     }
   ],
   "locations": [

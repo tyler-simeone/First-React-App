@@ -36,6 +36,7 @@ const EmployeeList = props => {
             key={employee.id}
             employee={employee}
             deleteEmployee={deleteEmployees}
+            {...props}
           />
         ))}
       </div>

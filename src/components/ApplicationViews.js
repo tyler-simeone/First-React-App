@@ -12,8 +12,17 @@ import LocationEditForm from "./locations/LocationsEditForm";
 import LocationsDetails from "./locations/LocationsDetails";
 import EmployeeList from "./employees/EmployeeList";
 import EmployeeForm from "./employees/EmployeeForm";
+import EmployeeWithAnimals from "./employees/EmployeeWithAnimals";
 import OwnersList from "./owners/OwnersList";
 import OwnerForm from "./owners/OwnersForm";
+
+
+/* 
+  TODO: MONDAY 03-02: 
+    1) Fix AnimalEditForm.js so that when animal edit/update is saved, the DB 'animals' arr is updated to reflect new employeeId FK.
+    2) Finish adding edit btns & functionality to 'Employees' & Owners 
+    3) READ, FOLLOW ALONG & UNDERSTAND.... React chs. 12, 13 & 14. 
+*/
 
 const ApplicationViews = () => {
   // As long as sessionStorage has a key of 'credentials' then this func is true
@@ -131,7 +140,6 @@ const ApplicationViews = () => {
         }}
       />
       {/* EMPLOYEES */}
-      {/* TODO: Add employee details route/component */}
       <Route
         exact
         path="/employees"
@@ -149,9 +157,16 @@ const ApplicationViews = () => {
           return <EmployeeForm {...props} />;
         }}
       />
+      {/* This new route is from Ch. 13, and will render the animal card under the employee name when you click on employee details btn */}
+      <Route
+        path="/employees/:employeeId(\d+)/details"
+        render={props => {
+          return <EmployeeWithAnimals {...props} />;
+        }}
+      />
 
       {/* OWNERS */}
-      {/* TODO: Add owner details route/component */}
+      {/* TODO: Add 'owner details' route/component */}
       <Route
         exact
         path="/owners"
