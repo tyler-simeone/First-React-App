@@ -31,5 +31,9 @@ export default {
           },
           body: JSON.stringify(editedLocation)
         }).then(data => data.json());
+      },
+      getWithEmployees(id) {
+        return fetch(`${remoteURL}/locations/${id}?_embed=employees`)
+                .then(result => result.json())
       }
 }
