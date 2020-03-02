@@ -19,7 +19,6 @@ import OwnerForm from "./owners/OwnersForm";
 
 /* 
   TODO: MONDAY 03-02: 
-    1) Fix AnimalEditForm.js so that when animal edit/update is saved, the DB 'animals' arr is updated to reflect new employeeId FK.
     2) Finish adding edit btns & functionality to 'Employees' & Owners 
     3) READ, FOLLOW ALONG & UNDERSTAND.... React chs. 12, 13 & 14. 
 */

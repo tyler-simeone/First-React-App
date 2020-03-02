@@ -26,12 +26,11 @@ const AnimalEditForm = props => {
     setIsLoading(true);
 
     // This is an edit, so we need the id (retrieved from URL qs param)
-    // TODO: Get employeeId to update in DB....
     const editedAnimal = {
       id: props.match.params.animalId,
       name: animal.name,
       breed: animal.breed,
-      employeeId: employees.id
+      employeeId: parseInt(animal.employeeId)
     };
 
     AnimalManager.update(editedAnimal).then(() =>
@@ -46,6 +45,7 @@ const AnimalEditForm = props => {
       EmployeeManager.getAll().then(employees => {
         setEmployees(employees);
         setAnimal(animal);
+        console.log(animal)
         // Need below line to come after the prior 2 lines, bc you need btn to be clickable .......
         setIsLoading(false);
       })

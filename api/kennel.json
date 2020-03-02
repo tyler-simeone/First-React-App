@@ -3,7 +3,8 @@
     {
       "id": 1,
       "name": "Rex",
-      "breed": "Bull Mastiff"
+      "breed": "Bull Mastiff",
+      "employeeId": 1
     },
     {
       "id": 2,
@@ -26,7 +27,8 @@
     {
       "id": 5,
       "name": "Super-Awesome-Trail-Dog",
-      "breed": "Lab"
+      "breed": "Lab",
+      "employeeId": 1
     }
   ],
   "locations": [
