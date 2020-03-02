@@ -3,34 +3,39 @@
     {
       "id": 1,
       "name": "Rex",
-      "breed": "T-rex"
+      "breed": "Dachshund",
+      "employeeId": 1
     },
     {
       "id": 2,
-      "name": "Rad",
-      "breed": "Lab"
+      "name": "Super-Awesome-Trail-Dog",
+      "breed": "Lab",
+      "employeeId": 2
     },
     {
       "id": 3,
       "name": "Esme",
-      "breed": "Pitbull"
+      "breed": "Pitbull",
+      "employeeId": 1
     },
     {
       "id": 4,
-      "name": "Roy",
-      "breed": "Pitbull"
+      "name": "Troy",
+      "breed": "German Shepherd",
+      "employeeId": 2
     },
     {
+      "id": 5,
       "name": "Super-Awesome-Trail-Dog",
       "breed": "Lab",
-      "id": 5
+      "employeeId": 1
     }
   ],
   "locations": [
     {
+      "id": 1,
       "name": "NSS",
-      "address": "Nashville, TN",
-      "id": 1
+      "address": "NASHVILLE, TN"
     },
     {
       "name": "MTB Trails",

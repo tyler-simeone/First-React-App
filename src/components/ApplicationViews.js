@@ -5,13 +5,23 @@ import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
 import AnimalForm from "./animal/AnimalForm";
 import AnimalDetail from "./animal/AnimalDetail";
+import AnimalEditForm from "./animal/AnimalEditForm";
 import LocationsList from "./locations/LocationsList";
 import LocationForm from "./locations/LocationsForm";
+import LocationEditForm from "./locations/LocationsEditForm";
 import LocationsDetails from "./locations/LocationsDetails";
 import EmployeeList from "./employees/EmployeeList";
 import EmployeeForm from "./employees/EmployeeForm";
+import EmployeeWithAnimals from "./employees/EmployeeWithAnimals";
 import OwnersList from "./owners/OwnersList";
 import OwnerForm from "./owners/OwnersForm";
+
+
+/* 
+  TODO: MONDAY 03-02: 
+    2) Finish adding edit btns & functionality to 'Employees' & Owners 
+    3) READ, FOLLOW ALONG & UNDERSTAND.... React chs. 12, 13 & 14. 
+*/
 
 const ApplicationViews = () => {
   // As long as sessionStorage has a key of 'credentials' then this func is true
@@ -20,13 +30,16 @@ const ApplicationViews = () => {
   return (
     <React.Fragment>
       {/* Rather than render JSX attribute, we use 'component' and pass in Login card */}
-      <Route path="/login" render={props => {
-        if (isAuthenticated()) {
-          return <Redirect to="/" />
-        } else {
-          return <Login {...props} />
-        }
-      }} />
+      <Route
+        path="/login"
+        render={props => {
+          if (isAuthenticated()) {
+            return <Redirect to="/" />;
+          } else {
+            return <Login {...props} />;
+          }
+        }}
+      />
 
       {/* HOME */}
       <Route
@@ -59,15 +72,29 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/animals/:animalId(\d+)"
         render={props => {
-          // Pass the animalId to the AnimalDetailComponent
-          return (
-            <AnimalDetail
-              animalId={parseInt(props.match.params.animalId)}
-              {...props}
-            />
-          );
+          if (isAuthenticated()) {
+            return (
+              <AnimalDetail
+                animalId={parseInt(props.match.params.animalId)}
+                {...props}
+              />
+            );
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
+      <Route
+        path="/animals/:animalId(\d+)/edit"
+        render={props => {
+          if (isAuthenticated()) {
+            return <AnimalEditForm {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
         }}
       />
 
@@ -79,7 +106,7 @@ const ApplicationViews = () => {
           if (isAuthenticated()) {
             return <LocationsList {...props} />;
           } else {
-            return <Redirect to="/login" />
+            return <Redirect to="/login" />;
           }
         }}
       />
@@ -90,6 +117,7 @@ const ApplicationViews = () => {
         }}
       />
       <Route
+        exact
         path="/locations/:locationId(\d+)"
         render={props => {
           return (
@@ -100,9 +128,17 @@ const ApplicationViews = () => {
           );
         }}
       />
-
+      <Route
+        path="/locations/:locationId(\d+)/edit"
+        render={props => {
+          if (isAuthenticated()) {
+            return <LocationEditForm {...props} />;
+          } else {
+            return <Redirect to="/login" />;
+          }
+        }}
+      />
       {/* EMPLOYEES */}
-      {/* TODO: Add employee details route/component */}
       <Route
         exact
         path="/employees"
@@ -110,7 +146,7 @@ const ApplicationViews = () => {
           if (isAuthenticated()) {
             return <EmployeeList {...props} />;
           } else {
-            return <Redirect to="/login" />
+            return <Redirect to="/login" />;
           }
         }}
       />
@@ -120,9 +156,16 @@ const ApplicationViews = () => {
           return <EmployeeForm {...props} />;
         }}
       />
+      {/* This new route is from Ch. 13, and will render the animal card under the employee name when you click on employee details btn */}
+      <Route
+        path="/employees/:employeeId(\d+)/details"
+        render={props => {
+          return <EmployeeWithAnimals {...props} />;
+        }}
+      />
 
       {/* OWNERS */}
-      {/* TODO: Add owner details route/component */}
+      {/* TODO: Add 'owner details' route/component */}
       <Route
         exact
         path="/owners"
@@ -130,7 +173,7 @@ const ApplicationViews = () => {
           if (isAuthenticated()) {
             return <OwnersList {...props} />;
           } else {
-            return <Redirect to="/login" />
+            return <Redirect to="/login" />;
           }
         }}
       />
