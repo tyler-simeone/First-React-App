@@ -3,12 +3,12 @@
     {
       "id": 1,
       "name": "Rex",
-      "breed": "Bull Mastiff",
+      "breed": "Dachshund",
       "employeeId": 1
     },
     {
       "id": 2,
-      "name": "Rad Dog 3000",
+      "name": "Super-Awesome-Trail-Dog",
       "breed": "Lab",
       "employeeId": 2
     },
@@ -21,7 +21,7 @@
     {
       "id": 4,
       "name": "Troy",
-      "breed": "Pitbull",
+      "breed": "German Shepherd",
       "employeeId": 2
     },
     {

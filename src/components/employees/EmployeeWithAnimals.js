@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import EmployeeManager from '../../modules/EmployeeManager'
+import AnimalManager from "../../modules/AnimalManager"
 import AnimalCard from '../animal/AnimalCard'
 
 const EmployeeWithAnimals = props => {
   const [employee, setEmployee] = useState({});
   const [animals, setAnimals] = useState([]);
+
+  const deleteAnimal = id => {
+    AnimalManager.delete(id)
+      .then(() => AnimalManager.getAll().then(setAnimals));
+  };
 
   useEffect(() => {
     //got here now make call to get employee with animal
@@ -22,6 +28,7 @@ const EmployeeWithAnimals = props => {
         <AnimalCard
           key={animal.id}
           animal={animal}
+          deleteAnimal={deleteAnimal}
           {...props}
         />
       )}
