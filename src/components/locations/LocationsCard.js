@@ -10,7 +10,7 @@ const LocationsCard = props => {
             <address>
                 {props.location.address}
             </address>
-            <Link to={`/locations/${props.location.id}`}>
+            <Link to={`/locations/${props.location.id}/details`}>
                 <button type="button">Details</button>
             </Link>
             <Link to={`/locations/${props.location.id}/edit`}>
