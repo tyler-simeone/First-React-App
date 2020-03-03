@@ -10,6 +10,7 @@ import LocationsList from "./locations/LocationsList";
 import LocationForm from "./locations/LocationsForm";
 import LocationEditForm from "./locations/LocationsEditForm";
 import LocationsDetails from "./locations/LocationsDetails";
+import LocationWithEmployees from "./locations/LocationWithEmployees";
 import EmployeeList from "./employees/EmployeeList";
 import EmployeeForm from "./employees/EmployeeForm";
 import EmployeeWithAnimals from "./employees/EmployeeWithAnimals";
@@ -136,6 +137,12 @@ const ApplicationViews = () => {
           } else {
             return <Redirect to="/login" />;
           }
+        }}
+      />
+      <Route
+        path="/locations/:locationId(\d+)/details"
+        render={props => {
+          return <LocationWithEmployees {...props} />;
         }}
       />
       {/* EMPLOYEES */}
