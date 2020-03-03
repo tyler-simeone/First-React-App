@@ -35,32 +35,37 @@
     {
       "id": 1,
       "name": "NSS",
-      "address": "NASHVILLE, TN",
-      "employeeId": 2
+      "address": "NASHVILLE, TN"
     },
     {
       "id": 2,
       "name": "MTB Trails",
-      "address": "Park City, UT",
-      "employeeId": 2
+      "address": "Park City, UT"
     },
     {
       "id": 3,
       "name": "Soquel Demo Forest",
-      "address": "Santa Cruz, CA",
-      "employeeId": 2
+      "address": "Santa Cruz, CA"
     }
   ],
   "employees": [
     {
       "id": 1,
       "name": "Owen Wilson",
-      "image": "./owenwilson.jpg"
+      "image": "./owenwilson.jpg",
+      "locationId": 1
     },
     {
       "id": 2,
       "name": "Brad Pitt",
       "image": "./braddpitt.jpg",
+      "locationId": 2
+    },
+    {
+      "id": 3,
+      "name": "Sean Evans",
+      "image": "./seanevans.jpeg",
+      "locationId": 3
     }
   ],
   "owners": [

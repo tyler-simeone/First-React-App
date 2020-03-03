@@ -13,9 +13,18 @@ const EmployeeCard = props => {
         ) : null}
       </picture>
       <h2>{props.employee.name}</h2>
-      <p>{props.employee.name} just loves dogs.</p>
-      <button type="button"
-        onClick={() => { props.history.push(`/employees/${props.employee.id}/details`) }}>Details
+      <p>
+        {props.employee.name === "Sean Evans"
+          ? `${props.employee.name} just loves.... chicken?`
+          : `${props.employee.name} just loves dogs.`}
+      </p>
+      <button
+        type="button"
+        onClick={() => {
+          props.history.push(`/employees/${props.employee.id}/details`);
+        }}
+      >
+        Details
       </button>
       <button
         type="button"

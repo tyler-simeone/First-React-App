@@ -16,6 +16,7 @@ const EmployeeWithAnimals = props => {
     //got here now make call to get employee with animal
     EmployeeManager.getWithAnimals(props.match.params.employeeId)
       .then(APIResult => {
+        console.log(APIResult)
         setEmployee(APIResult);
         setAnimals(APIResult.animals);
       });
