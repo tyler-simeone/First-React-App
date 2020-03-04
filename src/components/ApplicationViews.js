@@ -1,6 +1,6 @@
 import { Route, Redirect } from "react-router-dom";
-import Login from "./auth/Login";
 import React from "react";
+import Login from "./auth/Login";
 import Home from "./home/Home";
 import AnimalList from "./animal/AnimalList";
 import AnimalForm from "./animal/AnimalForm";
@@ -24,21 +24,16 @@ import OwnerForm from "./owners/OwnersForm";
     3) READ, FOLLOW ALONG & UNDERSTAND.... React chs. 12, 13 & 14. 
 */
 
-const ApplicationViews = () => {
-  // As long as sessionStorage has a key of 'credentials' then this func is true
-  const isAuthenticated = () => sessionStorage.getItem("credentials") !== null;
+const ApplicationViews = props => {
+  const hasUser = props.hasUser;
+  const setUser = props.setUser;
 
   return (
     <React.Fragment>
-      {/* Rather than render JSX attribute, we use 'component' and pass in Login card */}
       <Route
         path="/login"
         render={props => {
-          if (isAuthenticated()) {
-            return <Redirect to="/" />;
-          } else {
-            return <Login {...props} />;
-          }
+          return <Login setUser={setUser} {...props} />;
         }}
       />
 
@@ -53,13 +48,11 @@ const ApplicationViews = () => {
 
       {/* ANIMALS */}
       <Route
-        // Using the 'exact' prop will require this exact path to render this component, and prevent rendering this component
-        // when another path that includes this path is loaded (such as the 2 route below this first one).
         exact
         // The basic paths come from NavBar.js, the other paths come from different btn clicks.
         path="/animals"
         render={props => {
-          if (isAuthenticated()) {
+          if (hasUser) {
             return <AnimalList {...props} />;
           } else {
             return <Redirect to="/login" />;
@@ -76,7 +69,7 @@ const ApplicationViews = () => {
         exact
         path="/animals/:animalId(\d+)"
         render={props => {
-          if (isAuthenticated()) {
+          if (hasUser) {
             return (
               <AnimalDetail
                 animalId={parseInt(props.match.params.animalId)}
@@ -91,7 +84,7 @@ const ApplicationViews = () => {
       <Route
         path="/animals/:animalId(\d+)/edit"
         render={props => {
-          if (isAuthenticated()) {
+          if (hasUser) {
             return <AnimalEditForm {...props} />;
           } else {
             return <Redirect to="/login" />;
@@ -104,7 +97,7 @@ const ApplicationViews = () => {
         exact
         path="/locations"
         render={props => {
-          if (isAuthenticated()) {
+          if (hasUser) {
             return <LocationsList {...props} />;
           } else {
             return <Redirect to="/login" />;
@@ -132,7 +125,7 @@ const ApplicationViews = () => {
       <Route
         path="/locations/:locationId(\d+)/edit"
         render={props => {
-          if (isAuthenticated()) {
+          if (hasUser) {
             return <LocationEditForm {...props} />;
           } else {
             return <Redirect to="/login" />;
@@ -150,7 +143,7 @@ const ApplicationViews = () => {
         exact
         path="/employees"
         render={props => {
-          if (isAuthenticated()) {
+          if (hasUser) {
             return <EmployeeList {...props} />;
           } else {
             return <Redirect to="/login" />;
@@ -163,7 +156,7 @@ const ApplicationViews = () => {
           return <EmployeeForm {...props} />;
         }}
       />
-      {/* This new route is from Ch. 13, and will render the animal card under the employee name when you click on employee details btn */}
+      {/* This new route is from Ch. 13, and will render the employee card under the location when you click on employee details btn */}
       <Route
         path="/employees/:employeeId(\d+)/details"
         render={props => {
@@ -177,7 +170,7 @@ const ApplicationViews = () => {
         exact
         path="/owners"
         render={props => {
-          if (isAuthenticated()) {
+          if (hasUser) {
             return <OwnersList {...props} />;
           } else {
             return <Redirect to="/login" />;
