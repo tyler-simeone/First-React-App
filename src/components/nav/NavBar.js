@@ -1,10 +1,19 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 
-// NavBar component now takes a props arg and for the links we want to hide when user is logged out, we use a ternary operator on 
-// those list items. 
+// Exporting and importing this NavBar component 'withRouter' so we can use 'props.history.push' method in the nested 'handleLogout' fn
+
+// NavBar component now takes a props arg and for the links we want to hide when user is logged out, we use a ternary operator on those list items. 
 const NavBar = props => {
+
+  // clears session storage and redirects user to 'Home', and then should see only 3 tabs including 'Login' tab
+  const handleLogout = () => {
+    props.clearUser();
+    props.history.push('/');
+  };
+
   return (
     <header>
       <h1 className="site-title">
@@ -35,16 +44,19 @@ const NavBar = props => {
                 <Link className="nav-link" to="/owners"> Owners </Link>
               </li>
             : null}
-          {/* LOGIN TAB IF USER NOT LOGGED IN */}
-          {!props.hasUser
+          {/* LOGIN/LOGOUT TAB w/ logout functionality */}
+          {/* used a span tag for the logout tab bc 'Link' React tags require a to="" prop. */}
+          {props.hasUser
             ? <li>
-                <Link className="nav-link" to="/login"> Login </Link>
+                <span className="nav-link" onClick={handleLogout}> Logout </span>
               </li>
-            : null}
+            : <li>
+                <Link className="nav-link" to="/login"> Login </Link>
+              </li>}
         </ul>
       </nav>
     </header>
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

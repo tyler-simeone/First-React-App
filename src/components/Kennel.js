@@ -16,10 +16,16 @@ const Kennel = () => {
     setHasUser(isAuthenticated());
   };
 
-  // pass initial state as a prop and func to update state to both child components
+  // will clear out session storage and set hasUser state to false, bringing our site back to logged-out mode.
+  const clearUser = () => {
+    sessionStorage.clear();
+    setHasUser(isAuthenticated());
+  };
+
+  // passing state and functions as props to our child components
   return (
     <>
-      <NavBar hasUser={hasUser} />
+      <NavBar hasUser={hasUser} clearUser={clearUser} />
       <ApplicationViews hasUser={hasUser} setUser={setUser} />
     </>
   );
