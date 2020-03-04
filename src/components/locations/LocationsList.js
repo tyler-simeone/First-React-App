@@ -24,24 +24,26 @@ const LocationsList = props => {
 
   return (
     <React.Fragment>
-      <section className="section-content">
-        <button
-          type="button"
-          className="btn"
-          onClick={() => {
-            props.history.push("/locations/new");
-          }}
-        >
-          Add Location
-        </button>
-      </section>
+      {props.hasUser ? (
+        <section className="section-content">
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              props.history.push("/locations/new");
+            }}
+          >
+            Add Location
+          </button>
+        </section>
+      ) : null}
       <div className="container-cards">
         {locations.map(location => (
           <LocationsCard
             key={location.id}
             location={location}
             deleteLocation={deleteLocation}
-            // {...props}
+            hasUser={props.hasUser}
           />
         ))}
       </div>

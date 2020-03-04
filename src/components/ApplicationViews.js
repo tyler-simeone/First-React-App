@@ -97,11 +97,7 @@ const ApplicationViews = props => {
         exact
         path="/locations"
         render={props => {
-          if (hasUser) {
-            return <LocationsList {...props} />;
-          } else {
-            return <Redirect to="/login" />;
-          }
+          return <LocationsList hasUser={hasUser} {...props} />;
         }}
       />
       <Route
